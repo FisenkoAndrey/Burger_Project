@@ -1,11 +1,14 @@
 from _pytest.fixtures import fixture
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from helper import random_string_creation
 
 @fixture()
 def driver():
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.implicitly_wait(4)
     yield driver
