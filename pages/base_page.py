@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from seletools.actions import drag_and_drop
-from locators import NavigationLocators
+from locators import NavigationLocators, TapeOfOrders
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage:
@@ -45,6 +47,12 @@ class BasePage:
     def drag_and_drop(self, obj, to_obj):
         obj = self.wait.until(EC.visibility_of_element_located(obj))
         to_obj = self.wait.until(EC.visibility_of_element_located(to_obj))
-        drag_and_drop(self.driver, obj, to_obj)
+        ActionChains(self.driver).drag_and_drop(obj, to_obj).perform()
 
 
+    def wait_until_element_visible_and_catch(self, locator):
+        text = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator)).text
+        return text
+
+    def click_tape_of_orders(self):
+        self.click(TapeOfOrders.TAPE)

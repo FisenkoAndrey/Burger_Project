@@ -10,7 +10,7 @@ class AuthPageLocators:
 
 class NavigationLocators:
     PROFILE = By.XPATH, "//p[text()='Личный кабинет']"
-
+    ORDERLIST = By.XPATH, "//*[@id='root']/header/div/nav[1]/a[2]/p"
 
 class RegistrationLocators:
 
@@ -33,10 +33,18 @@ class ConstructorLocators:
     MODALWINDOWNAME = By.XPATH, "//*[@id='react-modals']/section[2]/div[1]/h2"
     OOTSIDEPOINT = By.XPATH, "//*[contains(@class, 'ModalOverlay')]"
     DROP = By.XPATH, "//*[@id='root']/div/main/div[2]/section/div[1]/div[1]"
+    STUFF = By.XPATH, "//*[@id='root']/div/main/div[1]/section/div[2]/div[3]/div/a[3]"
+    ORDERNUMBER = By.XPATH, "//*[@id='react-modals']/section[2]/div[2]/section/div[1]/p"
 
+class OrderLocators:
+    ORDERBUTTON = By.XPATH, "//*[@id='root']/div/main/div[2]/section/div[2]/button"
+    ORDERIDENTIFICATOR = By.XPATH, "//*[@id='react-modals']/section[2]/div[2]/section/div[1]/p"
+    CLOSEWINDOW = By.XPATH, "//*[@id='react-modals']/section[2]/div[1]/button"
+    ORDERLISTNUMBERS = By.XPATH, "//*[@id='root/]/div/div/div[2]/div[1]/div[1]/div"
 
-
-
+class TapeOfOrders:
+    TAPE = By.XPATH, "//*[@id='root']/header/div/nav[1]/a[2]/p"
+    ORDERNUMBERS = By.XPATH, "//*[contains(@class, 'Feed_status')][contains(@class, ' text text_type_digits-default')]"
 
 
 

@@ -1,18 +1,8 @@
 import time
-from urllib import request
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
-import pytest
-
-from pages.auth_page import AuthPage
 from pages.registration_page import RegistrationPage
-from tests.conftest import user_data
-from tests.constructor_page import ConstructorPage
+from pages.constructor_page import ConstructorPage
+from pages.tape_page import TapePage
 
 
 def test_bun_check(driver, wait):
@@ -38,7 +28,18 @@ def test_make_order(driver, wait, user_data):
     page.registration(user_data)
     page1 = ConstructorPage(driver, wait)
     page1.drag_and_drop_bun()
-    time.sleep(5)
+    page1.drag_and_drop_stuff()
+    page1.click_order_button()
+    order = page1.catch_order_number()
+    page1.close_order_window()
+    page1.click_tape_of_orders()
+    page2 = TapePage(driver, wait)
+
+    assert order in page2.collect_order_numbers()
+
+
+
+
 
 
 
