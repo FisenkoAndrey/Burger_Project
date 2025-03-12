@@ -49,7 +49,6 @@ class BasePage:
         to_obj = self.wait.until(EC.visibility_of_element_located(to_obj))
         ActionChains(self.driver).drag_and_drop(obj, to_obj).perform()
 
-
     def wait_until_element_visible_and_catch(self, locator):
         text = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator)).text
         return text

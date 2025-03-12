@@ -1,11 +1,6 @@
-import time
-
-import pytest
-
 from pages.auth_page import AuthPage
 from pages.registration_page import RegistrationPage
-from tests.conftest import user_data
-from tests.profile_page import ProfilePage
+from pages.profile_page import ProfilePage
 
 
 #@pytest.mark.usefixtures("registration")
