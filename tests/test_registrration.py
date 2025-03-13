@@ -38,8 +38,7 @@ def test_registration(driver,wait, user_data):
     # print(page1.email_retrieve())
 
 
-    assert False  # assert user_data["name"] == page1.name_check(user_data["name"])
-
+    assert user_data["name"] == page1.name_check(user_data["name"])
     assert user_data["email"] == page1.email_check(user_data["email"])
 
 
