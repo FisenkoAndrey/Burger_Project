@@ -44,9 +44,9 @@ class BasePage:
     def check_clickable(self, locator):
         return EC.element_to_be_clickable(locator)
 
-    def drag_and_drop(self, obj, to_obj):
-        obj = self.wait.until(EC.visibility_of_element_located(obj))
-        to_obj = self.wait.until(EC.visibility_of_element_located(to_obj))
+    def drag_and_drop(self, obj_locator, to_obj_locator):
+        obj = self.wait.until(EC.visibility_of_element_located(obj_locator))
+        to_obj = self.wait.until(EC.visibility_of_element_located(to_obj_locator))
         ActionChains(self.driver).drag_and_drop(obj, to_obj).perform()
 
     def wait_until_element_visible_and_catch(self, locator):
